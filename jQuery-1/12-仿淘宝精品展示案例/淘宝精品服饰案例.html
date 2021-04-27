@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝精品服饰案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .wrapper{
+            width: 250px;
+            height: 248px;
+            margin: 100px auto;
+            border: 1px solid pink;
+            border-right: 0;
+            /* 把溢出的部分隐藏 */
+            overflow: hidden;
+        }
+        #left,
+        #content{
+            float: left;
+        }
+        #left li{
+            background: url(./images/lili.jpg) repeat-x;
+        }
+        #left li a{
+            display: block;
+            width: 48px;
+            height: 27px;
+            border-bottom: 1px solid pink;
+            line-height: 27px;
+            text-align: center;
+            color: black;
+        }
+        #left li a:hover{
+            background: url(./images/abg.gif);
+        }
+        #content {
+            border-left: 1px solid pink;
+            border-right: 1px solid pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">连衣裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li><a href="#">牛仔裤</a></li>
+        </ul>
+        <div id="content">
+            <div>
+                <a href="#"><img src="./images/女靴.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/雪地靴.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/连衣裙.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/呢大衣.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/毛衣.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/棉服.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/女裤.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/羽绒服.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+            <div>
+                <a href="#"><img src="./images/牛仔裤.jpg" alt="" width="200px" height="250px"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 
+        案例分析：
+        1.核心原理：鼠标经过左侧盒子某个li，就让内容区盒子相对应图片显示，其余图片隐藏
+        2.需要得到当前li的索引号，就可以显示对应索引号的图片
+        3.jQuery得到当前元素索引号  $(this).index()
+        4.中间对应的图片可以通过eq(index)方法去选择
+        5.显示元素show()  隐藏元素hide()
+     -->
+    <script>
+        $(function(){
+            // 1.鼠标经过左侧的li
+            $('#left li').mouseover(function(){
+                // 2.得到当前li的索引号
+                var index = $(this).index();
+                // 3.让我们右侧的盒子相应的索引号的图片显示出来就好了
+                $('#content div').eq(index).show(); 
+                // 4.让其余的图片(就是其他的兄弟)隐藏起来
+                $('#content div').eq(index).siblings().hide();
+            })
+        })
+    </script>
+</body>
+</html>

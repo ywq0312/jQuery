@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery顶级对象$</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1. $ 是jQuery的别称（另外的名字）
+
+        // $(function(){
+        //     alert(11);
+        // })
+        jQuery(function(){
+            // alert(11);
+            // $('div').hide();
+            jQuery('div').hide();
+        })
+        // 2. $ 同时也是jQuery的顶级对象,相当于原生js中的window，把元素利用$包装成jQuery对象，就可以调用jQuery的方法
+    </script>
+</body>
+</html>

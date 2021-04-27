@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery类操作不影响原先类</title>
+    <style>
+        .one{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .two{
+            transform: rotate(360deg);
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div class="one two"></div>
+    <script>
+        // var one = document.querySelector('.one');
+        // one.className = 'two';  直接覆盖了原先的类，相当于只剩下一个类two
+        // $('.one').addClass('two');  //这个addClass相当于追加类名，不影响之前的类名，相当于有两个类，一个one、一个two
+        $('.one').removeClass('two');  //指定对操作的类进行操作，不会对原先的类产生影响
+    </script>
+</body>
+</html>

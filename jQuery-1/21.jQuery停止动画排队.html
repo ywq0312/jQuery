@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>停止动画排队</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav{
+            margin: 100px;
+        }
+        .nav > li{
+            float: left;
+            width: 80px;
+            /* height: 41px; */
+            text-align: center;
+        }
+        .nav li a{
+            display: block;
+            /* width: 100%; */
+            /* height: 100%; */
+            line-height: 41px;
+            color: #333;
+        }
+        .nav li a:hover{
+            background-color: #eee;
+        }
+        .nav ul{
+            /* 隐藏 */
+            display: none;
+            border-left: 1px solid #fecc5b;
+            border-right: 1px solid #fecc5b;
+        }
+        .nav ul li{
+            border-bottom: 1px solid #fecc5b;
+        }
+        .nav ul li:a{
+            background-color: #fff5da;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="">私信</a>
+                </li>
+                <li>
+                    <a href="">评论</a>
+                </li>
+                <li>
+                    <a href="">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="">私信</a>
+                </li>
+                <li>
+                    <a href="">评论</a>
+                </li>
+                <li>
+                    <a href="">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="">私信</a>
+                </li>
+                <li>
+                    <a href="">评论</a>
+                </li>
+                <li>
+                    <a href="">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>
+                    <a href="">私信</a>
+                </li>
+                <li>
+                    <a href="">评论</a>
+                </li>
+                <li>
+                    <a href="">@我</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // over:鼠标移到元素上要触发的函数（相当于mouseenter）
+        // out:鼠标移出元素要触发的函数（相当于mouseleave）
+        $(function(){
+            // 鼠标经过
+            // $('.nav > li').mouseover(function(){
+            //     // $(this)  jQuery当前元素   this不要加引号
+            //     // show() 显示元素   hide()隐藏元素
+            //     $(this).children('ul').show();
+            // });
+            // // 鼠标离开
+            // $('.nav > li').mouseout(function(){
+            //     $(this).children('ul').hide();
+            // })
+
+
+            // 1.事件切换  hover就是鼠标经过和离开的复合写法
+            // $('.nav > li').hover(function(){
+            //     $(this).children('ul').slideDown(200);
+            // },function(){
+            //     $('.nav > li').children('ul').slideUp(200);
+            // });
+
+            
+            // 2.事件切换 hover 如果只写一个函数，那么鼠标经过和鼠标离开都会触发这个函数 
+
+            // 动画或者效果一旦触发就会执行，如果多次触发，就造成多个动画或者效果排队执行。
+            // stop()方法用于停止动画或效果
+            // 注意：stop()写到动画或者效果的前面，相当于停止结束上一次的动画
+            $('.nav > li').hover(function(){
+                $(this).children('ul').stop().slideToggle();
+            })
+        })
+    </script>
+</body>
+</html>

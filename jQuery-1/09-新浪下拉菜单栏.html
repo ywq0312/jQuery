@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            max-width: 1300px;
+            min-width: 1200px;
+        }
+        li {
+            list-style: none;
+        }
+        .boxbox {
+            border-top: 3px solid orange;
+        }
+        .box {
+            margin-left: 820px;
+        }
+        .box1 {
+            position: relative;
+            display: inline-block;
+            height: 50px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box1>ul {
+            position: absolute;
+            display: none;
+            
+        }
+        .box1>a {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            
+        }
+        .box1>ul>li>a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            border-bottom: 1px solid orange;
+            border-left: 1px solid orange;
+            border-right: 1px solid orange;
+        }
+        .box2 {
+            position: relative;
+            display: inline-block;
+            height: 50px;   
+            text-align: center;
+            line-height: 40px;
+        }
+        .box2>a {
+            display: block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;   
+        }
+        .box2>ul {
+            position: absolute;
+            display: none;  
+        }
+        .box2>ul>li>a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            border-bottom: 1px solid orange;
+            border-left: 1px solid orange;
+            border-right: 1px solid orange;
+        }
+        .box3 {
+            position: relative;
+            display: inline-block;
+            height: 50px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box3>a {
+            display: block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;  
+        }
+        .box3>ul {
+            position: absolute;
+            display: none;
+        }
+        .box3>ul>li>a {
+            display: block;
+            width: 140px;
+            height: 40px;
+            border-bottom: 1px solid orange;
+            border-left: 1px solid orange;
+            border-right: 1px solid orange;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color: orange;
+        }
+        .box1>a:hover {
+            background-color: #eee;
+        }
+        .box1>ul>li>a:hover {
+            background-color: rgb(238, 233, 224);
+        }
+        .box2>a:hover {
+            background-color: #eee;
+        }
+        .box2>ul>li>a:hover {
+            background-color: rgb(238, 233, 224);
+        }
+        .box3>a:hover {
+            background-color: #eee;
+        }
+        .box3>ul>li>a:hover {
+            background-color: rgb(238, 233, 224);
+        }
+    </style>
+</head>
+<body>
+    <div class="boxbox">
+        <ul class="box">
+            <li class="box1">
+                <a href="JavaScript:;">微博</a>
+                <ul>
+                    <li><a href="#">私信</a></li>
+                    <li><a href="#">评论</a></li>
+                    <li><a href="#">@我</a></li>
+                </ul>
+            </li>
+            <li class="box2">
+                <a href="JavaScript:;">博客</a>
+                <ul>
+                    <li><a href="JavaScript:;">博客评论</a></li>
+                    <li><a href="JavaScript:;">未读提醒</a></li>
+                </ul>
+            </li>
+            <li class="box3">
+                <a href="JavaScript:;">邮箱</a>
+                <ul>
+                    <li><a href="JavaScript:;">免费邮箱</a></li>
+                    <li><a href="JavaScript:;">VIP邮箱</a></li>
+                    <li><a href="JavaScript:;">企业邮箱</a></li>
+                    <li><a href="JavaScript:;">新浪邮箱客户端</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var box = document.querySelector('.box'); //获取父级元素
+        var lis = box.children; //获取三个子元素节点
+        for(var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function() {
+                this.children[1].style.display = 'none';
+            }
+        } 
+    </script>
+</body>
+</html>

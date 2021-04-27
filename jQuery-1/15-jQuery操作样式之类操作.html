@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery操作对象之类操作</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            margin: 100px auto;
+            /* 过渡效果 */
+            transition: all 0.5s;
+        }
+        .current{
+            background-color: skyblue;
+            /* 旋转360度 */
+            transform: rotate(360deg);
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div class="current"></div>
+    <script>
+        $(function(){
+            // 1.添加类 addClass()
+            // $('div').click(function(){
+            //     // $(this).addClass('current');
+            // })
+            // 2.删除类 removeClass()
+            // $('div').click(function(){
+            //     // $(this).removeClass('current');
+            // })
+            // 3.切换类toggleClass()  有这个类的时候移除这个类，没有的时候帮你加上这个类
+            $('div').click(function(){
+                $(this).toggleClass('current');
+            })
+        })
+    </script>
+</body>
+</html>
